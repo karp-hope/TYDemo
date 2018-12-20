@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep attributes SourceFile,LineNumberTable
+# ProGuard configurations for NetworkBench Lens
+
+-keep class com.networkbench.** { *; }
+
+-dontwarn com.networkbench.**
+
+-keep attributes Exceptions, Signature, InnerClasses
+
+# End NetworkBench Lens

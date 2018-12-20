@@ -2,6 +2,7 @@ package ty.example.hope
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.networkbench.agent.impl.NBSAppAgent
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
+        NBSAppAgent.setLicenseKey("094e27493fb54536bee392598b1a4544")
+                .withLocationServiceEnabled(true).start(this.applicationContext)
     }
 
     /**
