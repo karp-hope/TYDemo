@@ -6,6 +6,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
@@ -114,20 +115,58 @@ class FloatingActionBtnPlus: ViewGroup{
             layoutSwitchFab()
             layoutBackView()
 
-//            var childCount = childCount
-//            var j = childCount - 2
-//            for(i in 0 until j step 1){
-//                var childView = (FabTagLayout)getChildAt(i + 2)
-//
-//
-//            }
+            var childCount = childCount
+            var j = childCount - 2
+            for(i in 0 until j step 1){
+                var childView = getChildAt(i + 2) as FloatingActionButton
+                childView.visibility = View.INVISIBLE
+
+
+
+
+
+                var childWidth = childView.measuredWidth
+                var childHeight = childView.measuredHeight
+
+                var mFabHeight = 0
+                var supportMargin = 0
+
+                if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+                    mFabHeight = mSwitchFab?.measuredHeight!! + dp2px(20)
+                    supportMargin = 0
+                }else{
+                    mFabHeight = mSwitchFab?.measuredHeight!!
+                    supportMargin = dp2px(8)
+                }
+
+                var fl = supportMargin
+                var ft = 0
+
+                when(mPosition){
+                    POS_LEFT_BOTTOM->{
+                        ft = getMeasuredHeight() - (mFabHeight + childHeight * (i + 1));
+                    }
+                    POS_LEFT_TOP->{
+                        ft = mFabHeight + childHeight * i;
+                    }
+                    POS_RIGHT_TOP->{
+                        ft = mFabHeight + childHeight * i;
+                        fl = getMeasuredWidth() - childWidth - supportMargin;
+                    }
+                    POS_RIGHT_BOTTOM->{
+                        ft = getMeasuredHeight() - (mFabHeight + childHeight * (i + 1));
+                        fl = getMeasuredWidth() - childWidth - supportMargin;
+                    }
+                }
+                childView.layout(fl, ft, fl + childWidth, ft + childHeight)
+
+            }
 
 
         }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        var count = childCount
         for(i in 0 until childCount){
             measureChild(getChildAt(i), widthMeasureSpec, heightMeasureSpec)
         }
@@ -146,8 +185,6 @@ class FloatingActionBtnPlus: ViewGroup{
         mBackView = getChildAt(0)
         mBackView?.layout(0, 0, measuredWidth, measuredHeight)
     }
-
-
 
     fun getAttributes(context: Context, attrs: AttributeSet){
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.FloatingActionBtnPlus)
@@ -357,6 +394,8 @@ class FloatingActionBtnPlus: ViewGroup{
             //OvershootInterpolator 超出插补器（向前跑直到越界一点后，再往回跑）
             objectAnimator.interpolator = OvershootInterpolator()
             objectAnimator.start()
+
+
         }
     }
 }
