@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ty.example.hope.widget.FloatingActionBtnPlus
+        android:id="@+id/fab_plus"
+        app:switchFabColor="#DB4537"
+        app:animationMode="fade"
+        app:switchFabIcon="@mipmap/ic_add_white_48dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="40dp"
+              android:layout_height="40dp">
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:backgroundTint="#468cb7"-->
+            <!--app:fabSize="mini"-->
+            <!--android:src="@mipmap/ic_get_app_white_48dp"-->
+            <!--/>-->
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:backgroundTint="#4BB7A7"-->
+            <!--app:fabSize="mini"-->
+            <!--android:src="@mipmap/ic_send_white_48dp"-->
+    <!--/>-->
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:backgroundTint="#ff9800"-->
+            <!--app:fabSize="mini"-->
+            <!--android:src="@mipmap/ic_shopping_cart_white_48dp"-->
+    <!--/>-->
+
+</ty.example.hope.widget.FloatingActionBtnPlus>

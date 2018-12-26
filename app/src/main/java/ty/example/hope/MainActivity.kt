@@ -2,14 +2,20 @@ package ty.example.hope
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+//import butterknife.BindView
 import com.networkbench.agent.impl.NBSAppAgent
 import kotlinx.android.synthetic.main.activity_main.*
+import ty.example.hope.widget.FloatingActionBtnPlus
 
 class MainActivity : AppCompatActivity() {
+
+    var floatingActionBtnPlus: FloatingActionBtnPlus? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        floatingActionBtnPlus = findViewById(R.id.fab_plus)
 
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
@@ -29,5 +35,9 @@ class MainActivity : AppCompatActivity() {
         init {
             System.loadLibrary("native-lib")
         }
+    }
+
+    fun events(){
+//        floatingActionBtnPlus.setOnLick
     }
 }
