@@ -121,10 +121,6 @@ class FloatingActionBtnPlus: ViewGroup{
                 var childView = getChildAt(i + 2) as FloatingActionButton
                 childView.visibility = View.INVISIBLE
 
-
-
-
-
                 var childWidth = childView.measuredWidth
                 var childHeight = childView.measuredHeight
 
@@ -133,7 +129,7 @@ class FloatingActionBtnPlus: ViewGroup{
 
                 if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
                     mFabHeight = mSwitchFab?.measuredHeight!! + dp2px(20)
-                    supportMargin = 0
+                    supportMargin = dp2px(20)
                 }else{
                     mFabHeight = mSwitchFab?.measuredHeight!!
                     supportMargin = dp2px(8)
@@ -144,18 +140,26 @@ class FloatingActionBtnPlus: ViewGroup{
 
                 when(mPosition){
                     POS_LEFT_BOTTOM->{
-                        ft = getMeasuredHeight() - (mFabHeight + childHeight * (i + 1));
+                        ft = measuredHeight - (mFabHeight + childHeight * (i + 1));
                     }
                     POS_LEFT_TOP->{
-                        ft = mFabHeight + childHeight * i;
+                        ft = mFabHeight + childHeight * i
                     }
                     POS_RIGHT_TOP->{
-                        ft = mFabHeight + childHeight * i;
-                        fl = getMeasuredWidth() - childWidth - supportMargin;
+                        ft = mFabHeight + childHeight * i
+                        fl = measuredWidth - childWidth - supportMargin
                     }
                     POS_RIGHT_BOTTOM->{
-                        ft = getMeasuredHeight() - (mFabHeight + childHeight * (i + 1));
-                        fl = getMeasuredWidth() - childWidth - supportMargin;
+                        if(i == 0) {
+                            ft = measuredHeight - (mFabHeight + childHeight * (i + 1) + dp2px(4))
+                            fl = measuredWidth - childWidth - supportMargin
+                        }else if (i == 1){
+                            ft = mSwitchFab?.top!! - childHeight + dp2px(4)
+                            fl = mSwitchFab?.left!! - childWidth + dp2px(4)
+                        }else if(i == 2){
+                            ft = mSwitchFab?.bottom!! -  childHeight
+                            fl = mSwitchFab?.left!! - childWidth - dp2px(4)
+                        }
                     }
                 }
                 childView.layout(fl, ft, fl + childWidth, ft + childHeight)
@@ -200,7 +204,6 @@ class FloatingActionBtnPlus: ViewGroup{
     }
 
     private fun settingsView(context: Context){
-        Log.i(ConstConfigure.TAG, "settingsView")
         var backView = View(context)
 
         backView.setBackgroundColor(mBackgroundColor)
