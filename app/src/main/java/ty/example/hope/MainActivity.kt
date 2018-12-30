@@ -36,8 +36,4 @@ class MainActivity : AppCompatActivity() {
             System.loadLibrary("native-lib")
         }
     }
-
-    fun events(){
-//        floatingActionBtnPlus.setOnLick
-    }
 }
