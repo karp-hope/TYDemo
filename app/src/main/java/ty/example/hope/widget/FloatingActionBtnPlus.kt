@@ -108,8 +108,6 @@ class FloatingActionBtnPlus: ViewGroup{
 
             mFirstEnter = false
         }
-        Log.d(ConstConfigure.TAG, "width:" + layoutParams.width +
-                ", height:" + layoutParams.height)
 
         if (changed) {
             layoutSwitchFab()

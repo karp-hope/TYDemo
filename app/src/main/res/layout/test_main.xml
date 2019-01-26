@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff6f8fe"
+>
+
+    <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/white"-->
+                    <!--android:id="@+id/rly_top"-->
+    <!--&gt;-->
+        <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+        <!--android:text="< 返回"-->
+        <!--android:layout_marginLeft="20px"-->
+        <!--android:id="@+id/tv_back"-->
+        <!--/>-->
+
+        <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+        <!--android:text="可视化页面命名"-->
+        <!--android:layout_centerHorizontal="true"/>-->
+
+
+        <!--<View android:layout_height="1dp" android:layout_width="wrap_content"-->
+            <!--android:background="@android:color/darker_gray"-->
+              <!--android:layout_below="@id/tv_back"-->
+              <!--android:layout_marginTop="20px"-->
+        <!--&gt;</View>-->
+
+
+    <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20px" android:layout_marginRight="20px"-->
+                    <!--android:layout_marginTop="20px"-->
+                    <!--android:background="@android:color/holo_blue_dark"-->
+                    <!--android:layout_below="@id/rly_top"-->
+                    <!--android:id="@+id/select_rly"-->
+    <!--&gt;-->
+
+        <!--<Spinner android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+            <!--android:id="@+id/spn"-->
+                 <!--android:entries="@array/sp_test"-->
+                 <!--android:layout_centerVertical="true"-->
+                 <!--android:layout_marginTop="20px"-->
+                 <!--android:layout_marginBottom="20px"-->
+        <!--&gt;-->
+
+        <!--</Spinner>-->
+
+        <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/spn"-->
+                  <!--android:text="adfadfasdfadfasdfasdfadsfasdfadfadfadfasdfadfasdfasdfadsfasdfadf"-->
+                  <!--android:singleLine="true"-->
+                  <!--android:layout_centerVertical="true"-->
+        <!--/>-->
+
+
+
+    <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/select_rly"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:id="@+id/all_select"-->
+    <!--&gt;-->
+        <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"-->
+            <!--android:id="@+id/rly_action"-->
+        <!--&gt;-->
+            <!--<ImageView android:layout_width="54dp" android:layout_height="54dp"-->
+            <!--android:scaleType="fitCenter" android:src="@drawable/hand_enable"-->
+            <!--android:id="@+id/img_action"-->
+            <!--/>-->
+            <!---->
+            <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/img_action"-->
+                      <!--android:id="@+id/tv_actiontip"-->
+                      <!--android:text="操作名称"-->
+            <!--/>-->
+
+            <!--<EditText android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/img_action"-->
+                      <!--android:layout_below="@id/tv_actiontip"-->
+                      <!--android:hint="请输入操作名称"-->
+            <!--/>-->
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/rly_action"-->
+        <!--&gt;-->
+            <!--<ImageView android:layout_width="54dp" android:layout_height="54dp"-->
+                       <!--android:scaleType="fitCenter" android:src="@drawable/hand_enable"-->
+                       <!--android:id="@+id/img_pagename"-->
+            <!--/>-->
+
+            <!--<EditText android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                      <!--android:layout_toRightOf="@id/img_pagename"-->
+                      <!--android:hint="请输入页面名称"-->
+            <!--/>-->
+        <!--</RelativeLayout>-->
+
+
+    <!--</RelativeLayout>-->
+
+
+    <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20px"-->
+                    <!--android:layout_marginRight="20px"-->
+                    <!--android:layout_marginTop="30px"-->
+                    <!--android:layout_below="@id/all_select"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:id="@+id/rly_img"-->
+
+    <!--&gt;-->
+
+        <!--<ImageView android:layout_width="300px" android:layout_height="400px"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:background="@android:color/holo_blue_dark"-->
+                   <!--android:layout_marginTop="20px"-->
+                   <!--android:src="@drawable/hand_enable"-->
+        <!--&gt;-->
+
+        <!--</ImageView>-->
+    <!--</RelativeLayout>-->
+
+    <!--<Button android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/rly_img"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="20px"-->
+            <!--android:background="@android:color/holo_blue_dark"-->
+            <!--android:text="上传"-->
+    <!--/>-->
+
+
+</RelativeLayout>
