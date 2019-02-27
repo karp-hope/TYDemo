@@ -6,9 +6,9 @@ import android.support.v4.view.ViewPager
 //import butterknife.BindView
 import com.networkbench.agent.impl.NBSAppAgent
 import ty.example.hope.R
+import ty.example.hope.adapter.FmPageAdapter
 
 class MainActivity : AppCompatActivity(), MainPageContract.View {
-
     override lateinit var presenter: MainPageContract.Presenter
 
     private lateinit var viewPager: ViewPager
@@ -40,5 +40,9 @@ class MainActivity : AppCompatActivity(), MainPageContract.View {
         init {
             System.loadLibrary("native-lib")
         }
+    }
+
+    override fun configureViewPageAdapter() {
+        viewPager.adapter = FmPageAdapter(this.supportFragmentManager)
     }
 }

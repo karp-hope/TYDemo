@@ -22,11 +22,13 @@ class MainPagePresenter constructor(private val appContext: Context,
 
     override fun start() {
         initTy()
+        mainpageView.configureViewPageAdapter()
     }
 
     private fun initTy() {
-        Toast.makeText(appContext, "1111", Toast.LENGTH_LONG).show()
         NBSAppAgent.setLicenseKey("094e27493fb54536bee392598b1a4544")
                 .withLocationServiceEnabled(true).start(appContext)
     }
+
+
 }

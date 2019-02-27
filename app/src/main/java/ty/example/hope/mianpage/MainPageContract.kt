@@ -18,6 +18,6 @@ interface MainPageContract {
     }
 
     interface View: BaseView<Presenter>{
-
+        fun configureViewPageAdapter()
     }
 }
