@@ -16,17 +16,17 @@ class MainActivity : AppCompatActivity(), MainPageContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        configureMenu()
 
-        viewPager = findViewById(R.id.viewpage)
+        MainPagePresenter(this.applicationContext, this)
+        presenter.start()
 
         // Example of a call to a native method
-        MainPagePresenter(this.applicationContext, this)
+
     }
 
     override fun onResume() {
         super.onResume()
-        presenter.start()
+
     }
 
     /**
@@ -43,12 +43,10 @@ class MainActivity : AppCompatActivity(), MainPageContract.View {
         }
     }
 
-    override fun configureViewPageAdapter() {
-        viewPager.adapter = FmPageAdapter(this.supportFragmentManager)
-    }
-
     override fun initView() {
-
+        configureMenu()
+        viewPager = findViewById(R.id.viewpage)
+        viewPager.adapter = FmPageAdapter(this.supportFragmentManager)
     }
 
     private fun configureMenu(){
@@ -71,7 +69,7 @@ class MainActivity : AppCompatActivity(), MainPageContract.View {
         }
 
         // Add 3 tabs, specifying the tab's text and TabListener
-        for (i in 0 until 6) {
+        for (i in 0 until 2) {
             supportActionBar?.addTab(
                     supportActionBar?.newTab()
                             ?.setText("Tab " + (i + 1))

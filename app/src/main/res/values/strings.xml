@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TYApplication</string>
+
+    <!--networkfragment-->
+    <string name="network_lib_type">选择网络库类型</string>
+    <string name="network_url">URL设置</string>
 </resources>

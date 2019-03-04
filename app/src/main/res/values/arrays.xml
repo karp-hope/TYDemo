@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="sp_test">
-        <item>c语言</item>
-        <item>java </item>
-        <item>php</item>
-        <item>xml</item>
-        <item>html</item>
+    <string-array name="sp_libs_type">
+        <item>OKHTTP3</item>
+        <item>OKHTTP2</item>
+        <item>HttpClient</item>
+        <item>URLConnection</item>
+    </string-array>
+    
+    <string-array name="url_arrays">
+        <item>https://www.baidu.com</item>
+        <item>http://www.qq.com</item>
+        <item>http://www.baidu.com</item>
+        <item>https://www.tingyun.com</item>
     </string-array>
 </resources>

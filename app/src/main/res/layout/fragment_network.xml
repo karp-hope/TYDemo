@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView android:layout_width="wrap_content"
+    <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="network test"
+              android:text="@string/network_lib_type"
+              android:textSize="@dimen/network_type_size"
+              android:id="@+id/tv_lib_type"
+              android:background="@android:color/darker_gray"
     />
+
+    <Spinner android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/sp_networklib"
+             android:layout_below="@id/tv_lib_type"
+    />
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/network_url"
+              android:textSize="@dimen/network_type_size"
+              android:background="@android:color/darker_gray"
+              android:id="@+id/tv_url"
+              android:layout_below="@id/sp_networklib"
+    />
+
+    <AutoCompleteTextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                            android:id="@+id/tv_autocomplete"
+                          android:layout_below="@id/tv_url"
+    />
+
+
+
+
 
 </RelativeLayout>

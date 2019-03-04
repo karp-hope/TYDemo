@@ -22,7 +22,7 @@ class MainPagePresenter constructor(private val appContext: Context,
 
     override fun start() {
         initTy()
-        mainpageView.configureViewPageAdapter()
+        mainpageView.initView()
     }
 
     private fun initTy() {
