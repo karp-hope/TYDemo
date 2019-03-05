@@ -8,5 +8,5 @@ package ty.example.hope.network
  * @create: 2019-03-05 14:52
  */
 enum class HttpLibType {
-    OKHTTP, URLCONNECTION, HTTPCLIENT
+    OKHTTP3, OKHTTP2, URLCONNECTION, HTTPCLIENT
 }

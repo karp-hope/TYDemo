@@ -25,8 +25,13 @@ class NetworkFragmentPresenter constructor(var networkFragmentView: NetworkFragm
     }
 
     override fun doNetwork() {
-        networkFactory = Okhttp3Factory()
-        getNetwork().doNetworkAsync()
+        Log.i(ConstConfigure.TAG, "httplibtype" + networkFragmentView.getHttpLibType() +
+                ", enum value:" + HttpLibType.OKHTTP3.toString())
+
+        if(networkFragmentView.getHttpLibType().equals(HttpLibType.OKHTTP3.toString())) {
+            networkFactory = Okhttp3Factory()
+            getNetwork().doNetworkAsync()
+        }
     }
 
     private fun getNetwork(): Network{
