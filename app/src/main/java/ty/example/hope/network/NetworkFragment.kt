@@ -2,13 +2,14 @@ package ty.example.hope.network
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Spinner
+import android.widget.*
+import kotlinx.android.synthetic.main.fragment_network.*
 import ty.example.hope.R
+import ty.example.hope.util.ConstConfigure
 
 /**
  * @description: NetworkFragment
@@ -22,18 +23,27 @@ class NetworkFragment : Fragment(), NetworkFragmentContract.View{
     override lateinit var presenter: NetworkFragmentContract.Presenter
     private lateinit var spinner: Spinner
     private lateinit var textView: AutoCompleteTextView
+    private lateinit var btnView: Button
+
+    private lateinit var cbGet: CheckBox
+    private lateinit var cbPost: CheckBox
 
     override fun initView() {
         initSpinner()
         initAutoCompleteText()
+        initBtnEvent()
+        initCheckBox()
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var result = inflater?.inflate(R.layout.fragment_network, container, false)
-        spinner = result!!.findViewById(R.id.sp_networklib)
-        textView = result!!.findViewById(R.id.tv_autocomplete)
+        var result = inflater!!.inflate(R.layout.fragment_network, container, false)
+        spinner = result.findViewById(R.id.sp_networklib)
+        textView = result.findViewById(R.id.tv_autocomplete)
+        btnView = result.findViewById(R.id.network_btn_send)
 
+        cbGet = result.findViewById(R.id.cb_method_get)
+        cbPost = result.findViewById(R.id.cb_method_post)
 
         NetworkFragmentPresenter(this)
         presenter.start()
@@ -56,5 +66,50 @@ class NetworkFragment : Fragment(), NetworkFragmentContract.View{
         }
     }
 
+    fun initBtnEvent(){
+        btnView.setOnClickListener({
+            presenter.doNetwork()
+        })
+    }
 
+    fun initCheckBox(){
+        cbGet.setOnClickListener{onCheckboxClicked(cbGet)}
+        cbPost.setOnClickListener{onCheckboxClicked(cbPost)}
+    }
+
+    override fun getSepcialUrl():String {
+        return textView.text.toString()
+    }
+
+    override fun getHttpLibType(): String {
+        return spinner.selectedItem.toString()
+    }
+
+    override fun getCheckBoxState(): HttpMethodType {
+        if(cbGet.isChecked)
+            return HttpMethodType.GET
+        else
+            return HttpMethodType.POST
+    }
+
+    fun onCheckboxClicked(view: View){
+        if(view is CheckBox){
+            when(view.id){
+                R.id.cb_method_get -> {
+                    if(!view.isChecked) {
+                        view.isChecked = true
+                    }
+                    cbPost.isChecked = false
+                }
+
+                R.id.cb_method_post -> {
+                    if(!view.isChecked) {
+                        view.isChecked = true
+                    }
+                    cbGet.isChecked = false
+                }
+
+            }
+        }
+    }
 }

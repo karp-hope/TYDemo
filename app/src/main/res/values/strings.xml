@@ -4,4 +4,9 @@
     <!--networkfragment-->
     <string name="network_lib_type">选择网络库类型</string>
     <string name="network_url">URL设置</string>
+
+    <string name="network_launch">发送网络访问</string>
+
+    <string name="checkbox_method_get">Get方式</string>
+    <string name="checkbox_method_post">Post方式</string>
 </resources>

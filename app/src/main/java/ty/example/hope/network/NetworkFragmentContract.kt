@@ -13,10 +13,13 @@ import ty.example.hope.BaseView
 interface NetworkFragmentContract {
 
     interface Presenter: BasePresenter{
-
+        fun doNetwork()
     }
 
     interface View: BaseView<Presenter> {
         fun initView()
+        fun getSepcialUrl():String
+        fun getHttpLibType():String
+        fun getCheckBoxState(): HttpMethodType
     }
 }
