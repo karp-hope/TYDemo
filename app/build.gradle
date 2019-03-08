@@ -3,7 +3,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-//apply plugin: 'newlens'
+//newrelic和newlens共用的时候，有可能造成互相嵌码的问题，而且注释掉newrelic，
+// rewrelic好像存在仍然存在于java中进行嵌码的问题
+//apply plugin: 'newrelic'
+apply plugin: 'newlens'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -80,5 +83,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
 
-    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
+
+    compile 'com.newrelic.agent.android:android-agent:5.22.0'
 }

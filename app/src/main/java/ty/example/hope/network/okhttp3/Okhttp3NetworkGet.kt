@@ -15,21 +15,25 @@ import java.io.IOException
  */
 class Okhttp3NetworkGet constructor(var urlstr:String): Network{
 
-    private var client: OkHttpClient = OkHttpClient()
+    private var client: OkHttpClient
     init {
-//        client = OkHttpClient()
+        client = OkHttpClient.Builder().eventListener(NBSEventListener()).build()
     }
 
     override fun doNetworkAsync() {
+        Log.i(ConstConfigure.TAG, "doNetworkAsync ok3 begin newCall time:" + System.currentTimeMillis())
         client.newCall(getRequest()).enqueue(object : Callback {
             override fun onFailure(p0: Call?, p1: IOException?) {
                 Log.e(ConstConfigure.TAG, "Okhttp3NetworkGet doNetworkAsync failed:" + p1?.message.toString())
             }
 
             override fun onResponse(p0: Call?, p1: Response?) {
+                Log.i(ConstConfigure.TAG, "doNetworkAsync onResponse time:" + System.currentTimeMillis())
                 if(p1!!.isSuccessful){
                     printlnResponseInfo(p1!!)
                 }
+                readResponseBody(p1!!)
+
             }
         })
     }
@@ -57,6 +61,7 @@ class Okhttp3NetworkGet constructor(var urlstr:String): Network{
 
     private fun printlnResponseInfo(response: Response){
         printlnResponseHeaders(response.headers())
+        Log.i(ConstConfigure.TAG, "responseBody class:" + response.body()!!::class)
         Log.i(ConstConfigure.TAG, "responseBody:" + response.body()?.string())
         Log.i(ConstConfigure.TAG, "responseBody contentLength:" + response.body()?.contentLength())
     }
@@ -66,6 +71,10 @@ class Okhttp3NetworkGet constructor(var urlstr:String): Network{
             Log.i(ConstConfigure.TAG, "head name:" + responseHeaders.name(i)
                     + ", value:" + responseHeaders.value(i))
         }
+    }
+
+    private fun readResponseBody(response: Response){
+        response.body()?.source()?.readByteString()
     }
 
 }

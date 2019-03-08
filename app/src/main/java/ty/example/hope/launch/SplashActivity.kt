@@ -3,7 +3,7 @@ package ty.example.hope.launch
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import ty.example.hope.mianpage.MainActivity
+import ty.example.hope.mainpage.MainActivity
 
 /**
  * @description: SplashActivity

@@ -1,6 +1,5 @@
-package ty.example.hope.mianpage
+package ty.example.hope.mainpage
 
-import android.content.Context
 import ty.example.hope.BasePresenter
 import ty.example.hope.BaseView
 
