@@ -17,7 +17,10 @@ class Okhttp3NetworkGet constructor(var urlstr:String): Network{
 
     private var client: OkHttpClient
     init {
-        client = OkHttpClient.Builder().eventListener(NBSEventListener()).build()
+        client = OkHttpClient.Builder()
+                .addInterceptor(Okhttp3LoggerInterceptor())
+                .addNetworkInterceptor(Okhttp3LoggerInterceptor())
+                .eventListener(NBSEventListener()).build()
     }
 
     override fun doNetworkAsync() {
@@ -60,9 +63,9 @@ class Okhttp3NetworkGet constructor(var urlstr:String): Network{
                 .build()
 
     private fun printlnResponseInfo(response: Response){
-        printlnResponseHeaders(response.headers())
+//        printlnResponseHeaders(response.headers())
         Log.i(ConstConfigure.TAG, "responseBody class:" + response.body()!!::class)
-        Log.i(ConstConfigure.TAG, "responseBody:" + response.body()?.string())
+//        Log.i(ConstConfigure.TAG, "responseBody:" + response.body()?.string())
         Log.i(ConstConfigure.TAG, "responseBody contentLength:" + response.body()?.contentLength())
     }
 

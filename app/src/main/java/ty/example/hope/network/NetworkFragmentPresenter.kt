@@ -4,6 +4,7 @@ import android.util.Log
 import ty.example.hope.network.okhttp2.Okhttp2Factory
 import ty.example.hope.network.okhttp3.Okhttp3Factory
 import ty.example.hope.network.okhttp3.Okhttp3NetworkGet
+import ty.example.hope.network.urlconnection.UrlConnectionFactory
 import ty.example.hope.util.ConstConfigure
 
 /**
@@ -31,9 +32,14 @@ class NetworkFragmentPresenter constructor(var networkFragmentView: NetworkFragm
 
         if(networkFragmentView.getHttpLibType().equals(HttpLibType.OKHTTP3.toString())) {
             networkFactory = Okhttp3Factory()
-            getNetwork().doNetworkAsync()
+//            for(i in 1..1) {
+                getNetwork().doNetworkAsync()
+//            }
         }else if(networkFragmentView.getHttpLibType().equals(HttpLibType.OKHTTP2.toString())){
             networkFactory = Okhttp2Factory()
+            getNetwork().doNetworkAsync()
+        }else if(networkFragmentView.getHttpLibType().equals(HttpLibType.URLConnection.toString())){
+            networkFactory = UrlConnectionFactory()
             getNetwork().doNetworkAsync()
         }
     }
