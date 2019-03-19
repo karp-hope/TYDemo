@@ -32,9 +32,9 @@ class NetworkFragmentPresenter constructor(var networkFragmentView: NetworkFragm
 
         if(networkFragmentView.getHttpLibType().equals(HttpLibType.OKHTTP3.toString())) {
             networkFactory = Okhttp3Factory()
-//            for(i in 1..1) {
+            for(i in 1..10) {
                 getNetwork().doNetworkAsync()
-//            }
+            }
         }else if(networkFragmentView.getHttpLibType().equals(HttpLibType.OKHTTP2.toString())){
             networkFactory = Okhttp2Factory()
             getNetwork().doNetworkAsync()

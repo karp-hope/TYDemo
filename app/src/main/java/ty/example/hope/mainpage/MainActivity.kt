@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), MainPageContract.View {
         }
 
         // Add 3 tabs, specifying the tab's text and TabListener
-        for (i in 0 until 2) {
+        for (i in 0 until 3) {
             supportActionBar?.addTab(
                     supportActionBar?.newTab()
                             ?.setText("Tab " + (i + 1))

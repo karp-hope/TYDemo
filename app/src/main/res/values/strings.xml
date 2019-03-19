@@ -9,4 +9,6 @@
 
     <string name="checkbox_method_get">Get方式</string>
     <string name="checkbox_method_post">Post方式</string>
+
+    <string name="webview_url">选择url</string>
 </resources>
