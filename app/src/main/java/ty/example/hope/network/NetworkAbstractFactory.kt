@@ -1,5 +1,8 @@
 package ty.example.hope.network
 
+import ty.example.hope.network.httpclient.HttpClientNetworkGet
+import ty.example.hope.network.httpclient.HttpClientNetworkPost
+
 /**
  * @description: NetworkAbstractFactory
  **
@@ -10,6 +13,17 @@ package ty.example.hope.network
  **
  * @create: 2019-03-05 14:36
  */
-interface NetworkAbstractFactory {
-    fun createNetworkInstance(urlStr: String, httpMethodType: HttpMethodType): Network
+abstract class NetworkAbstractFactory {
+    fun createNetworkInstance(urlStr: String, httpMethodType: HttpMethodType): Network{
+        when(httpMethodType){
+            HttpMethodType.GET-> return doNetworkGet(urlStr)
+            HttpMethodType.POST -> return doNetworkPost(urlStr)
+            else->
+                return doNetworkGet(urlStr)
+        }
+    }
+
+    abstract fun doNetworkGet(urlStr: String): Network
+
+    abstract fun doNetworkPost(urlStr: String): Network
 }

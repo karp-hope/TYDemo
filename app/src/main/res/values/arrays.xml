@@ -9,6 +9,7 @@
     
     <string-array name="url_arrays">
 
+        <item>https://h5.m.taobao.com</item>
         <item>http://www.qq.com</item>
         <item>http://www.baidu.com</item>
         <item>https://www.baidu.com</item>
@@ -20,5 +21,6 @@
         <item>http://p12.jmstatic.com/jmstore/image/000/001/1715_std/5817fc46c5511_640_257.jpg</item>
         <item>http://p2.jmstatic.com/product/001/583/1583037_std/1583037_350_350.jpg</item>
         <item>http://p15.jmstatic.com/zengzhang/37820d075282bd937770a6cf4f061f51.png</item>
+        <item>http://p0.jmstatic.com/product/003/109/3109945_std/3109945_pop_375_500_1.jpg</item>
     </string-array>
 </resources>

@@ -11,14 +11,12 @@ import ty.example.hope.network.NetworkAbstractFactory
  **
  * @create: 2019-03-05 14:39
  */
-class Okhttp3Factory :NetworkAbstractFactory{
+class Okhttp3Factory :NetworkAbstractFactory(){
+    override fun doNetworkPost(urlStr: String): Network {
+        return Okhttp3NetworkPost(urlStr)
+    }
 
-    override fun createNetworkInstance(urlStr: String, httpMethodType: HttpMethodType): Network {
-
-        when (httpMethodType) {
-            HttpMethodType.GET -> return Okhttp3NetworkGet(urlStr)
-            HttpMethodType.POST -> return Okhttp3NetworkPost(urlStr)
-            else -> return Okhttp3NetworkGet(urlStr)
-        }
+    override fun doNetworkGet(urlStr: String): Network {
+        return Okhttp3NetworkGet(urlStr)
     }
 }

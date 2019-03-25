@@ -2,14 +2,11 @@ package ty.example.hope.network
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import kotlinx.android.synthetic.main.fragment_network.*
 import ty.example.hope.R
-import ty.example.hope.util.ConstConfigure
 
 /**
  * @description: NetworkFragment

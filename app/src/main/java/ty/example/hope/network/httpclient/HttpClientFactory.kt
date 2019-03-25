@@ -1,24 +1,22 @@
-package ty.example.hope.network.urlconnection
+package ty.example.hope.network.httpclient
 
 import ty.example.hope.network.HttpMethodType
 import ty.example.hope.network.Network
 import ty.example.hope.network.NetworkAbstractFactory
 
 /**
- * @description: UrlConnectionFactory
+ * @description: HttpClientFactory
  **
  * @author: hope
  **
- * @create: 2019-03-13 18:56
+ * @create: 2019-03-19 12:09
  */
-class UrlConnectionFactory: NetworkAbstractFactory() {
-
+class HttpClientFactory: NetworkAbstractFactory() {
     override fun doNetworkPost(urlStr: String): Network {
-        return UrlConnectionNetworkGet(urlStr)
+        return HttpClientNetworkPost(urlStr)
     }
 
     override fun doNetworkGet(urlStr: String): Network {
-        return UrlConnectionNetworkGet(urlStr)
+        return HttpClientNetworkGet(urlStr)
     }
-
 }

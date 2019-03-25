@@ -36,6 +36,7 @@
                   android:layout_height="wrap_content"
                   android:layout_below="@id/tv_autocomplete"
                   android:orientation="vertical"
+                  android:id="@+id/lly_checkbox"
     >
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
@@ -70,7 +71,14 @@
             />
 
         </LinearLayout>
+
     </LinearLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="3dp"
+          android:background="@android:color/darker_gray"
+          android:layout_below="@id/lly_checkbox"
+    />
 
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -15,12 +15,24 @@ import java.io.IOException
  */
 class Okhttp3NetworkGet constructor(var urlstr:String): Network{
 
-    private var client: OkHttpClient
-    init {
-        client = OkHttpClient.Builder()
+//    private var client: OkHttpClient
+//    init {
+//        client = OkHttpClient.Builder()
+//                .addInterceptor(Okhttp3LoggerInterceptor())
+//                .addNetworkInterceptor(Okhttp3LoggerInterceptor())
+////                .eventListener(NBSEventListener()).build()
+//                .eventListenerFactory(HttpEventListener.FACTORY).build()
+//
+//    }
+
+//    private lateinit var client: OkHttpClient
+
+    companion object {
+                var client = OkHttpClient.Builder()
                 .addInterceptor(Okhttp3LoggerInterceptor())
-                .addNetworkInterceptor(Okhttp3LoggerInterceptor())
-                .eventListener(NBSEventListener()).build()
+//                .addNetworkInterceptor(Okhttp3LoggerInterceptor())
+//                .eventListener(NBSEventListener()).build()
+                .eventListenerFactory(HttpEventListener.FACTORY).build()
     }
 
     override fun doNetworkAsync() {
